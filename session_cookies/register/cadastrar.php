@@ -7,12 +7,11 @@
  */
 session_start();
 require __DIR__ . '/../../Files/form/conn.php';
-
 $secret = "XahsjsAAA374745SSDD";
 $data = $_POST;
 
 checkRegister($data, $conn);
-insert($user, $data, $conn);
+insert($data, $conn);
 
 /**
  * @param $data
@@ -36,9 +35,10 @@ function checkRegister ($data, $conn) {
         die();
     }
 
-    $sql = "SELECT * FROM users WHERE email = :email";
+    $sql = "SELECT * FROM users WHERE email like :email";
     $select = $conn->prepare($sql);
-    $select->bindValue(':email', $data['email']);
+    $select->bindParam(':email', $data['email']);
+    $select->execute();
 
     if ($select->rowCount()) {
         setcookie("register_email", "E-mail already exists", strtotime("+1 day"));
@@ -49,14 +49,21 @@ function checkRegister ($data, $conn) {
     require __DIR__ . '/../../clear_cookies.php';
 }
 
+/**
+ * @param $data
+ * @param $conn
+ * @see Inserir o dado novo.
+ */
 function insert($data, $conn) {
-    $sqlinsert = "INSERT INTO users(name, email, password created_at, updated_at) VALUES ( :name, :email, :password, now(), now() )";
+    $sql = "INSERT INTO users (name, email, password, created_at, updated_at) VALUES ( :name, :email, :password, now(), now() )";
     $secret = "XahsjsAAA374745SSDD";
 
-    $insert = $conn->prepare($sqlinsert);
+    $insert = $conn->prepare($sql);
     $insert->bindValue(':name', ucwords($data['name']));
     $insert->bindValue(':email', $data['email']);
-    $insert->bindValue(':password', sha1($data['password'], $secret));
+    $insert->bindValue(':password', sha1($data['password'] . $secret));
+
+    $senha = sha1($data['password'] . $secret);
 
     if (!$insert->execute()) {
         setcookie("acesso_banco", "Erro ao processar", strtotime("+1 day"));
@@ -68,5 +75,4 @@ function insert($data, $conn) {
     $_SESSION['user'] = $data;
     header('Location: /session_cookies/admin.php');
 }
-
 require_once __DIR__ . '/../../clear_cookies.php';

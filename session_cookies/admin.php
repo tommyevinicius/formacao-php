@@ -43,12 +43,7 @@ $user = $_SESSION['user'];
         </header>
 
         <nav class="menu">
- //add active class on menu
-    $('ul li').click(function(e) {
-        e.preventDefault();
-        $('li').removeClass('active');
-        $(this).addClass('active');
-    });            <ul>
+            <ul>
                 <li class="active">
                     <a href="#">Home</a>
                 </li>
@@ -69,7 +64,7 @@ $user = $_SESSION['user'];
                     <a href="/session_cookies/login/logout.php">Logout</a>
                 </li>
                 <li style="float: right;">
-                    Bem vindo, <?=$user['NAME']?>&nbsp
+                    Bem vindo, <?=ucwords(($user['name'] != null) ? $user['name'] : $user['NAME'])?>&nbsp
                 </li>
         </nav>
     </div>
