@@ -61,7 +61,7 @@ $user = $_SESSION['user'];
                 </li>
 
                 <li style="float: right;">
-                    <a href="/session_cookies/login/logout.php">Logout</a>
+                    <a href="/formacao/login/logout.php">Logout</a>
                 </li>
                 <li style="float: right;">
                     Bem vindo, <?=ucwords(($user['name'] != null) ? $user['name'] : $user['NAME'])?>&nbsp

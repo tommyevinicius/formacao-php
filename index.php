@@ -14,5 +14,5 @@
  * $ sudo update-alternatives --set phar.phar /usr/bin/phar.phar5.6
  */
 
-require_once 'session_cookies/login/index.php';
-//require_once  'session_cookies/cookie.php';
+require_once 'formacao/login/index.php';
+//require_once  'formacao/cookie.php';

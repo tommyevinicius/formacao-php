@@ -7,11 +7,9 @@
  */
 session_start();
 require __DIR__ . '/../../Files/form/conn.php';
-$secret = "XahsjsAAA374745SSDD";
-$data = $_POST;
 
-checkRegister($data, $conn);
-insert($data, $conn);
+checkRegister($_POST, $conn);
+insert($_POST, $conn);
 
 /**
  * @param $data
@@ -24,14 +22,14 @@ function checkRegister ($data, $conn) {
     $select->bindValue(':name', $data['name']);
 
     if (!$select->execute()) {
-        setcookie("acesso_banco", "Erro ao processar", strtotime("+1 day"));
-        header('Location: /session_cookies/login/index.php');
+        header('Location: /formacao/login/index.php');
+        $_SESSION['Erro'] = 'Error to proccess';
         die();
     }
 
     if ($select->rowCount()) {
-        setcookie("register_name", "Name already exists", strtotime("+1 day"));
-        header('Location: /session_cookies/register/index.php');
+        $_SESSION['Erro'] = 'Name already exists';
+        header('Location: /formacao/register/index.php');
         die();
     }
 
@@ -41,12 +39,12 @@ function checkRegister ($data, $conn) {
     $select->execute();
 
     if ($select->rowCount()) {
-        setcookie("register_email", "E-mail already exists", strtotime("+1 day"));
-        header('Location: /session_cookies/register/index.php');
+        $_SESSION['Erro'] = 'E-mail already exists';
+        header('Location: /formacao/register/index.php');
         die();
     }
 
-    require __DIR__ . '/../../clear_cookies.php';
+    $_SESSION = [];
 }
 
 /**
@@ -63,16 +61,16 @@ function insert($data, $conn) {
     $insert->bindValue(':email', $data['email']);
     $insert->bindValue(':password', sha1($data['password'] . $secret));
 
-    $senha = sha1($data['password'] . $secret);
-
     if (!$insert->execute()) {
-        setcookie("acesso_banco", "Erro ao processar", strtotime("+1 day"));
-        header('Location: /session_cookies/login/index.php');
+        $_SESSION['Erro'] = 'Error to proccess';
+        header('Location: /formacao/login/index.php');
         die();
     }
 
     unset($data['password']);
     $_SESSION['user'] = $data;
-    header('Location: /session_cookies/admin.php');
+    header('Location: /formacao/admin.php');
+    exit();
 }
-require_once __DIR__ . '/../../clear_cookies.php';
+
+$_SESSION = [];

@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,7 +17,7 @@
 <body class="align">
 <div class="grid">
     <h1 class="text--center">Register</h1>
-    <form action="/session_cookies/register/cadastrar.php" method="POST" class="form login">
+    <form action="/formacao/register/cadastrar.php" method="POST" class="form login">
 
         <div class="form__field">
             <label for="name">
@@ -28,7 +34,7 @@
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#user"></use>
                 </svg>
                 <span class="hidden">Username</span></label>
-            <input id="email" type="text" name="email" class="form__input" placeholder="E-mail" required>
+            <input id="email" type="email" name="email" class="form__input" placeholder="E-mail" required>
         </div>
 
         <div class="form__field">
@@ -42,7 +48,7 @@
         </div>
 
         <p class="text--center text--warning">
-            <?=$_COOKIE['acesso_banco'] . $_COOKIE['register_name'] .'<br/>'. $_COOKIE['register_email']?>
+            <?=$_SESSION['Erro'];?>
         </p>
 
         <div class="form__field">
@@ -51,7 +57,7 @@
 
     </form>
 
-    <p class="text--center"><a href="/session_cookies/login/login.php">Cancel</a>
+    <p class="text--center"><a href="/formacao/login/login.php" onclick="session_destroy()">Cancel</a>
         <svg class="icon">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-undo"></use>
         </svg>
@@ -82,6 +88,16 @@
         <path d="M28 0h-28v32h32v-28l-4-4zM16 4h4v8h-4v-8zM28 28h-24v-24h2v10h18v-10h2.343l1.657 1.657v22.343z"></path>
     </symbol>
 </svg>
+
+<script>
+    function session_destroy(){
+        <?php
+            session_start();
+            session_destroy();
+            $_SESSION = [];
+        ?>
+    }
+</script>
 
 </body>
 </html>

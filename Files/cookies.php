@@ -6,6 +6,8 @@
  * Time: 14:38
  */
 
+$lifetime = strtotime('+1 day');
+
 if (isset($_COOKIE['acesso_banco'])) {
     setcookie('acesso_banco', '', time()-1000);
 }
