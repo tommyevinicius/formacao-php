@@ -77,15 +77,15 @@
             !navigator.userAgent.toLowerCase().match(/windows phone os 7/i)) return false;
 
         this.each(function() {
-            var curItem = false;
-
-            $(this).on('click', function(e) {
-                var item = $(this);
-                if (item[0] != curItem[0]) {
-                    e.preventDefault();
-                    curItem = item;
-                }
-            });
+            // var curItem = false;
+            //
+            // $(this).on('click', function(e) {
+            //     var item = $(this);
+            //     if (item[0] != curItem[0]) {
+            //         e.preventDefault();
+            //         curItem = item;
+            //     }
+            // });
 
             $(document).on('click touchstart MSPointerDown', function(e) {
                 var resetItem = true,

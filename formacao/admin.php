@@ -12,7 +12,21 @@ if (!isset($_SESSION['user'])){
     die('Faça login para acessar a página');
 }
 
+require __DIR__ . '/../Files/form/conn.php';
+$products = selectProducts($conn);
 $user = $_SESSION['user'];
+
+function selectProducts ($conn) {
+    $sql = ' SELECT * FROM products; ';
+    $select = $conn->prepare($sql);
+    $select->execute();
+
+    if (!$select->rowCount()) {
+        return [];
+    }
+
+    return $select->fetchAll(PDO::FETCH_OBJ);
+}
 
 ?>
 
@@ -30,18 +44,33 @@ $user = $_SESSION['user'];
             <li><a href='#'>Home</a></li>
             <li class='active'><a href='https://s.codepen.io/dmitrykiselyov/debug/XJwqZM?SecondTap'>Products</a>
                 <ul>
-                    <li><a href='#Product 1'>Product 1</a>
-                        <ul>
-                            <li><a href='#SubProduct1'>Sub Product</a></li>
-                            <li><a href='#SubProduct2'>Sub Product</a></li>
-                        </ul>
-                    </li>
-                    <li><a href='#Product 2'>Product 2</a>
-                        <ul>
-                            <li><a href='#'>Sub Product</a></li>
-                            <li><a href='#'>Sub Product</a></li>
-                        </ul>
-                    </li>
+                    <?php
+                        if (!isset($products) || empty($products)) {
+                            echo "<li><a href='#Product 1'>Product 1</a>";
+                                echo "<ul>";
+                                    echo "<li><a href='#SubProduct1'>Sub Product Test</a></li>";
+                                    echo "<li><a href='#SubProduct2'>Sub Product Empty</a></li>";
+                                echo "</ul>";
+                            echo "</li>";
+
+                            echo "<li><a href='#Product 1'>Product 2</a>";
+                                echo "<ul>";
+                                    echo "<li><a href='#'>Sub Products Empty</a></li>";
+                                    echo "<li><a href='#'>Sub Products Test</a></li>";
+                                echo "</ul>";
+                            echo "</li>";
+                        } else {
+                            echo "<li><a href='#Product 2'>Personal</a>";
+                            echo "<ul>";
+                            foreach ($products as $product) {
+                                echo "<li><a href='#'>" . $product->NAME . "</a>";
+                                echo "<ul>";
+                                echo "<li><a href='#'>R$ " . number_format($product->PRICE, 2, ',', '.') . "</a></li>";
+                                echo "</ul></li>";
+                            }
+                            echo "</ul></li>";
+                        }
+                    ?>
                 </ul>
             </li>
             <li><a href='#'>About</a></li>
