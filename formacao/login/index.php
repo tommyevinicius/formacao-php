@@ -16,8 +16,8 @@ session_start();
 
 <body class="align">
 <div class="grid">
-<!--    <h1 class="text--center">Formação PHP 5</h1>-->
-    <img src="/Layout/formacao.png" title="formacao" name="formacao" height="100" width="320" style="padding: 1em;"/>
+    <h1 class="text--center">Formação PHP 5</h1>
+    <!-- <img src="/Layout/formacao.png" title="formacao" name="formacao" height="100" width="320" style="padding: 1em;"/> -->
     <form action="/formacao/login/login.php" method="POST" class="form login">
 
         <div class="form__field">
