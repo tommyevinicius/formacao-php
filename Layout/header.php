@@ -35,16 +35,15 @@ function selectProducts ($conn) {
 <head>
     <meta charset="UTF-8">
 
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/Layout/css/menu.css">
-    <link rel="stylesheet" type="text/css" href="/Layout/css/admin.css">
+    <link href="/Layout/css/bootstrap.css" rel="stylesheet">
 </head>
 
 <body>
 <div class="container">
 <div id='cssmenu'>
     <ul>
-        <li><a href='#'>Home</a></li>
+        <li><a href='/Layout/home.php'>Home</a></li>
         <li class='active'><a href='https://s.codepen.io/dmitrykiselyov/debug/XJwqZM?SecondTap'>Products</a>
             <ul>
                 <?php
@@ -83,7 +82,7 @@ function selectProducts ($conn) {
                 <?=ucwords(($user['name'] != null) ? $user['name'] : $user['NAME'])?>
             </a>
             <ul>
-                <li><a href='#Profile'>Profile
+                <li><a href='/formacao/profile/index.php'>Profile
                         <svg class="icon">
                             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#users"></use>
                         </svg>
@@ -96,11 +95,18 @@ function selectProducts ($conn) {
                 </li>
             </ul>
         </li>
+        <li style="float: right;">
+            <div style="padding-top: 10px;">
+                <img class="img-circle img-thumbnail" style="" width="30px;" src="/favicon.ico">
+            </div>
+        </li>
     </ul>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="/Layout/javascript/menu.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 <svg xmlns="http://www.w3.org/2000/svg" class="icons">
     <symbol id="exit" viewBox="0 0 32 32">
