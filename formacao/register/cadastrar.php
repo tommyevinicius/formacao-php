@@ -63,13 +63,13 @@ function insert($data, $conn) {
 
     if (!$insert->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/login/index.php');
+        header('Location: /Layout/home.php');
         die();
     }
 
     unset($data['password']);
     $_SESSION['user'] = $data;
-    header('Location: /formacao/admin.php');
+    header('Location: /index.php');
     exit();
 }
 

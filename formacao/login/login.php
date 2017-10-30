@@ -49,7 +49,7 @@ function login ($user, $data) {
 
     unset($user['PASSWORD']);
     $_SESSION['user'] = $user;
-    header('Location: /formacao/admin.php');
+    header('Location: /Layout/home.php');
     exit();
 }
 
