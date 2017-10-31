@@ -22,8 +22,7 @@ if (!$select->rowCount()) {
 }
 
 $sqlinsert = "INSERT INTO users(name, email, password created_at, updated_at) VALUES ( :name, :email, :password, now(), now() )";
-$secret = $secret = "XahsjsAAA374745SSDD";
-
+$secret = "XahsjsAAA374745SSDD";
 
 $insert = $conn->prepare($sqlinsert);
 $insert->bindValue(':name', $_POST['name']);

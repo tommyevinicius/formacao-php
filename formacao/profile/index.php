@@ -57,7 +57,7 @@ require __DIR__ . '/../../Layout/header.php';
             <div class="col-sm-10">
                 <div class="input-group" style="width: 40em;">
                     <div class="input-group-addon">Old Password</div>
-                    <input id="name" type="password" class="form-control" name="name" placeholder="********">
+                    <input id="name" type="password" class="form-control" name="oldpassword" placeholder="********">
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@ require __DIR__ . '/../../Layout/header.php';
             <div class="col-sm-10">
                 <div class="input-group" style="width: 40em;">
                     <div class="input-group-addon">New Password</div>
-                    <input id="name" type="password" class="form-control" name="name" placeholder="********">
+                    <input id="name" type="password" class="form-control" name="password" placeholder="********">
                 </div>
             </div>
         </div>

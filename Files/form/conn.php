@@ -7,11 +7,11 @@
  */
 
 $dsn = 'mysql:dbname=formacao;host=localhost';
-$user = 'root';
-$password = 'root';
+$userdb = 'root';
+$passworddb = 'root';
 
 try {
-    $conn = new PDO ($dsn, $user, $password);
+    $conn = new PDO ($dsn, $userdb, $passworddb);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch(PDOException $e) {
     throw new PDOException($e);
