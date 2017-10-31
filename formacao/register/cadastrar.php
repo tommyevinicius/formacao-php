@@ -55,6 +55,7 @@ function checkRegister ($data, $conn) {
 function insert($data, $conn) {
     $sql = "INSERT INTO users (name, email, password, created_at, updated_at) VALUES ( :name, :email, :password, now(), now() )";
     $secret = "XahsjsAAA374745SSDD";
+    $senha = sha1($data['password'] . $secret);
 
     $insert = $conn->prepare($sql);
     $insert->bindValue(':name', ucwords($data['name']));

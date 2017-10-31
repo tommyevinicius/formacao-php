@@ -41,7 +41,7 @@ if (!in_array($upload['type'], $type)) {
     }
 
     $_SESSION['Erro'] = null;
-    $_SESSION['Success'] = "Successfully registered";
+    $_SESSION['Success'] = "File Uploaded";
     header('Location: /formacao/profile/index.php');
 }
 ?>

@@ -31,8 +31,13 @@ $secret = "XahsjsAAA374745SSDD";
 $senha = sha1($_POST['oldpassword'] . $secret);
 
 if (!checkPassword($_POST)) {
+    if (empty($_POST['password'])) {
+        $_SESSION['Erro'] = 'Fill new password';
+        header('Location: /formacao/profile/index.php');
+        exit();
+    }
     if (sha1($_POST['oldpassword'] . $secret) != $user['PASSWORD']) {
-        $_SESSION['Erro'] = 'Wrong Password';
+        $_SESSION['Erro'] = 'Wrong password';
         header('Location: /formacao/profile/index.php');
         exit();
     }

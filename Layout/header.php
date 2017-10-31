@@ -44,7 +44,7 @@ function selectProducts ($conn) {
     <div id='cssmenu'>
         <ul>
             <li><a href='/Layout/home.php'>Home</a></li>
-            <li class='active'><a href='https://s.codepen.io/dmitrykiselyov/debug/XJwqZM?SecondTap'>Products</a>
+            <li class='active'><a href='/formacao/products/index.php'>Products</a>
                 <ul>
                     <?php
                     if (!isset($products) || empty($products)) {
@@ -62,7 +62,7 @@ function selectProducts ($conn) {
                         echo "</ul>";
                         echo "</li>";
                     } else {
-                        echo "<li><a href='#Product 2'>Personal</a>";
+                        echo "<li><a href='#'>Personal</a>";
                         echo "<ul>";
                         foreach ($products as $product) {
                             echo "<li><a href='#'>" . $product->NAME . "</a>";
