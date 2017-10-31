@@ -7,23 +7,33 @@
  */
 
 require __DIR__ . '/../../Layout/header.php';
-$user = $_SESSION['user'];
 
 ?>
 
 <div class="container-text">
-    <form class="form-horizontal" action="/profile.php" method="POST" enctype="multipart/form-data">
+    <?php
+        if (isset($_SESSION['Erro']) || isset($_SESSION['Success'])) {
+            if (isset($_SESSION['Erro']) || !empty($_SESSION['Erro'])) {
+                $tipo = 'alert-danger';
+                $mensagem = $_SESSION['Erro'];
+            } else {
+                $tipo = 'alert-success';
+                $mensagem = $_SESSION['Success'];
+            }
+            echo '<p class="' . $tipo . ' text-center">' . $mensagem . '</p>';
+        }
+    ?>
+    <form class="form-inline" action="/formacao/upload/upload.php" method="POST" enctype="multipart/form-data">
         <h1>
             Avatar
         </h1>
         <div class="form-group">
-            <div class="col-sm-10">
-                <div class="input-group" style="width: 40em;">
-                    <div class="input-group-addon fix">File</div>
-                    <input type="file" class="form-control" name="file">
-                </div>
+            <div class="input-group" style="width: 40em;">
+                <div class="input-group-addon">File</div>
+                <input type="file" class="form-control" name="file">
             </div>
         </div>
+        <button type="submit" class="btn btn-primary">Upload</button>
     </form>
 
     <form class="form-horizontal" action="profile.php" method="POST">
@@ -34,7 +44,7 @@ $user = $_SESSION['user'];
         <div class="form-group">
             <div class="col-sm-10">
                 <div class="input-group" style="width: 40em;">
-                    <div class="input-group-addon fix">Name</div>
+                    <div class="input-group-addon">Name</div>
                     <input id="name" type="text" class="form-control" name="name" placeholder="<?=$user['NAME'];?>">
                 </div>
             </div>
@@ -46,7 +56,7 @@ $user = $_SESSION['user'];
         <div class="form-group">
             <div class="col-sm-10">
                 <div class="input-group" style="width: 40em;">
-                    <div class="input-group-addon fix">Old Password</div>
+                    <div class="input-group-addon">Old Password</div>
                     <input id="name" type="password" class="form-control" name="name" placeholder="********">
                 </div>
             </div>
@@ -54,7 +64,7 @@ $user = $_SESSION['user'];
         <div class="form-group">
             <div class="col-sm-10">
                 <div class="input-group" style="width: 40em;">
-                    <div class="input-group-addon fix">New Password</div>
+                    <div class="input-group-addon">New Password</div>
                     <input id="name" type="password" class="form-control" name="name" placeholder="********">
                 </div>
             </div>

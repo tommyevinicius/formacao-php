@@ -69,7 +69,7 @@ function insert($data, $conn) {
 
     unset($data['password']);
     $_SESSION['user'] = $data;
-    header('Location: /index.php');
+    header('Location: /Layout/home.php');
     exit();
 }
 

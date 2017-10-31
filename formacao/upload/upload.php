@@ -7,15 +7,17 @@
  */
 
 session_start();
+require __DIR__ . '/../../Files/form/conn.php';
 
 $folder = __DIR__ . "/uploads/";
-$upload = $_FILES['imagem'];
+$upload = $_FILES['file'];
 $type = ['image/png', 'image/jpg', 'image/jpeg'];
 
 if (!in_array($upload['type'], $type)) {
-    $_SESSION['Erro'] = "Formato não aceito!";
+    $_SESSION['Erro'] = "Extension not allowed";
+    header('Location: /formacao/profile/index.php');
+    exit();
 } else {
-    $_SESSION = [];
     if (!is_dir($folder)) {
         mkdir($folder);
     }
@@ -24,6 +26,23 @@ if (!in_array($upload['type'], $type)) {
     $newName = md5($upload['name']) . time() . $ext;
 
     move_uploaded_file($upload['tmp_name'], $folder . $newName);
+
+    $id = $_SESSION['user'];
+    $sql = 'UPDATE users SET AVATAR = :newName WHERE ID_USERS = :idusers';
+    $update = $conn->prepare($sql);
+    $update->bindValue(':newName', $newName);
+    $update->bindValue(':idusers', $id['ID_USERS']);
+    $sql = $update->queryString;
+
+    if (!$update->execute()) {
+        $_SESSION['Erro'] = 'Error to proccess';
+        header('Location: /formacao/profile/index.php');
+        exit();
+    }
+
+    $_SESSION['Erro'] = null;
+    $_SESSION['Success'] = "Successfully registered";
+    header('Location: /formacao/profile/index.php');
 }
 ?>
 
