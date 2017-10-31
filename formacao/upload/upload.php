@@ -25,9 +25,8 @@ if (!in_array($upload['type'], $type)) {
     $ext = strrchr($upload['name'], '.');
     $newName = md5($upload['name']) . time() . $ext;
 
-    move_uploaded_file($upload['tmp_name'], $folder . $newName);
-
     $id = $_SESSION['user'];
+    $img_old = $id['AVATAR'];
     $sql = 'UPDATE users SET AVATAR = :newName WHERE ID_USERS = :idusers';
     $update = $conn->prepare($sql);
     $update->bindValue(':newName', $newName);
@@ -40,6 +39,9 @@ if (!in_array($upload['type'], $type)) {
         exit();
     }
 
+    unlink(__DIR__ . '/uploads/' .$img_old);
+
+    move_uploaded_file($upload['tmp_name'], $folder . $newName);
     $_SESSION['Erro'] = null;
     $_SESSION['Success'] = "File Uploaded";
     header('Location: /formacao/profile/index.php');

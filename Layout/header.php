@@ -75,8 +75,8 @@ function selectProducts ($conn) {
                     ?>
                 </ul>
             </li>
-            <li><a href='#'>About</a></li>
-            <li><a href='#'>Contact</a></li>
+            <!-- <li><a href='#'>About</a></li> -->
+            <!-- <li><a href='#'>Contact</a></li> -->
             <li class='active' style="float: right; padding-right: 4.7em;">
                 <a href='https://s.codepen.io/dmitrykiselyov/debug/XJwqZM?SecondTap'>
                     <?=ucwords(($user['name'] != null) ? $user['name'] : $user['NAME'])?>
@@ -97,7 +97,11 @@ function selectProducts ($conn) {
             </li>
             <li style="float: right;">
                 <div style="padding-top: 10px;">
-                    <img class="img-circle img-thumbnail" style="" width="30px;" src="/favicon.ico">
+                    <?php if (empty($user['AVATAR'])) : ?>
+                        <img class="img-circle img-thumbnail" width="30px;" src="/favicon.ico">
+                    <?php else : ?>
+                        <img class="img-circle" width="30px;" src="/formacao/upload/uploads/<?=$user['AVATAR']?>">
+                    <?php endif; ?>
                 </div>
             </li>
         </ul>

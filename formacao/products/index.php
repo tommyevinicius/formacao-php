@@ -41,12 +41,12 @@ require __DIR__ . '/../../Layout/header.php';
             </tr>
             <?php endforeach; endif;?>
         </tbody>
-        <tfoot>
+        <tfoot">
             <tr style="background-color: #b3b3b3; font-weight: bold;">
                 <td></td>
                 <td></td>
+                <td>R$ <?=number_format($total, 2, ',', '.')?> </td>
                 <td></td>
-                <td style="float: right">R$ <?=number_format($total, 2, ',', '.')?> </td>
             </tr>
         </tfoot>
     </table>
