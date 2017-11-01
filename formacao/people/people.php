@@ -58,3 +58,25 @@ function deletePeople ($people, $conn) {
     header('Location: /formacao/people/index.php');
     exit();
 }
+
+function insertPeople ($data, $conn) {
+    $sql = 'INSERT INTO people (NAME, LASTNAME, PHONE, EMAIL, CPF) VALUES (:name, :lastname, :phone, :email, :cpf);';
+
+    $insert = $conn->prepare($sql);
+    $insert->bindValue(':name', $data['name']);
+    $insert->bindValue(':lastname', $data['lastname']);
+    $insert->bindValue(':phone', $data['phone']);
+    $insert->bindValue(':email', $data['email']);
+    $insert->bindValue(':cpf', $data['cpf']);
+
+    if (!$insert->execute()) {
+        $_SESSION['Erro'] = 'Error to proccess';
+        header('Location: /formacao/people/index.php');
+        exit();
+    }
+
+    $_SESSION['Erro'] = '';
+    $_SESSION['Success'] = 'Successfully registered';
+    header('Location: /formacao/people/index.php');
+    exit();
+}

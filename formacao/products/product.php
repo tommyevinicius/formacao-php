@@ -55,3 +55,22 @@ function deleteProduct ($products, $conn) {
     header('Location: /formacao/products/index.php');
     exit();
 }
+
+function insertProduct ($data, $conn) {
+    $sql = 'INSERT INTO products (NAME, PRICE) VALUES (:name, :price);';
+
+    $insert = $conn->prepare($sql);
+    $insert->bindValue(':name', $data['name']);
+    $insert->bindValue(':price', $data['price']);
+
+    if (!$insert->execute()) {
+        $_SESSION['Erro'] = 'Error to proccess';
+        header('Location: /formacao/products/index.php');
+        exit();
+    }
+
+    $_SESSION['Erro'] = '';
+    $_SESSION['Success'] = 'Successfully registered';
+    header('Location: /formacao/products/index.php');
+    exit();
+}
