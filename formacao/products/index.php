@@ -35,8 +35,8 @@ require __DIR__ . '/../../Layout/header.php';
                 <td><?=$product->NAME?></td>
                 <td>R$ <?=number_format($product->PRICE, 2, ',', '.')?></td>
                 <td style="text-align: center">
-                    <a class="btn btn-default" disabled="" role="button" href="#"><i class="glyphicon glyphicon-pencil"></i></a>
-                    <a class="btn btn-default" disabled="" role="button" href="#"><i class="glyphicon glyphicon-trash"></i></a>
+                    <a class="btn btn-default" disabled="" onclick="return false" role="button" href="#"><i class="glyphicon glyphicon-pencil"></i></a>
+                    <a class="btn btn-default" disabled="" onclick="return false" role="button" href="#"><i class="glyphicon glyphicon-trash"></i></a>
                 </td>
             </tr>
             <?php endforeach; endif;?>

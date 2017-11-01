@@ -47,35 +47,39 @@ function selectProducts ($conn) {
             <li class='active'><a href='/formacao/products/index.php'>Products</a>
                 <ul>
                     <?php
-                    if (!isset($products) || empty($products)) {
-                        echo "<li><a href='#Product 1'>Product 1</a>";
-                        echo "<ul>";
-                        echo "<li><a href='#SubProduct1'>Sub Product Test</a></li>";
-                        echo "<li><a href='#SubProduct2'>Sub Product Empty</a></li>";
-                        echo "</ul>";
-                        echo "</li>";
+                    if (!isset($products) || empty($products)) : ?>
 
-                        echo "<li><a href='#Product 1'>Product 2</a>";
-                        echo "<ul>";
-                        echo "<li><a href='#'>Sub Products Empty</a></li>";
-                        echo "<li><a href='#'>Sub Products Test</a></li>";
-                        echo "</ul>";
-                        echo "</li>";
-                    } else {
-                        echo "<li><a href='#'>Personal</a>";
-                        echo "<ul>";
-                        foreach ($products as $product) {
-                            echo "<li><a href='#'>" . $product->NAME . "</a>";
-                            echo "<ul>";
-                            echo "<li><a href='#'>R$ " . number_format($product->PRICE, 2, ',', '.') . "</a></li>";
-                            echo "</ul></li>";
-                        }
-                        echo "</ul></li>";
-                    }
-                    ?>
+                    <li><a href='#Product 1'>Product 1</a>
+                        <ul>
+                            <li><a href='#SubProduct1'>Sub Product Test</a></li>
+                            <li><a href='#SubProduct2'>Sub Product Empty</a></li>
+                        </ul>
+                    </li>
+                    <li><a href='#Product 1'>Product 2</a>
+                        <ul>
+                            <li><a href='#'>Sub Products Empty</a></li>
+                            <li><a href='#'>Sub Products Test</a></li>
+                        </ul>
+                    </li>
+
+                    <?php else : ?>
+
+                    <li><a href='#'>Personal</a>
+                        <ul>
+
+                            <?php foreach ($products as $product) : ?>
+
+                            <li><a href='#'><?=$product->NAME?></a>
+                                <ul>
+                                    <li><a href='#'>R$ <?=number_format($product->PRICE, 2, ',', '.')?></a></li>
+                                </ul></li>
+                            <?php endforeach;?>
+                        </ul>
+                    </li>
+                    <?php endif; ?>
                 </ul>
             </li>
-            <!-- <li><a href='#'>About</a></li> -->
+            <li><a href='/formacao/people/index.php'>People</a></li>
             <!-- <li><a href='#'>Contact</a></li> -->
             <li class='active' style="float: right; padding-right: 4.7em;">
                 <a href='https://s.codepen.io/dmitrykiselyov/debug/XJwqZM?SecondTap'>

@@ -35,7 +35,7 @@ function checkRegister ($data, $conn) {
 
     $sql = "SELECT * FROM users WHERE email like :email";
     $select = $conn->prepare($sql);
-    $select->bindParam(':email', $data['email']);
+    $select->bindValue(':email', $data['email']);
     $select->execute();
 
     if ($select->rowCount()) {
