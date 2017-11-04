@@ -23,7 +23,7 @@ require __DIR__ . '/../../Layout/header.php';
             echo '<p class="' . $tipo . ' text-center">' . $mensagem . '</p>';
         }
     ?>
-    <form class="form-inline" action="/formacao/upload/upload.php" method="POST" enctype="multipart/form-data">
+    <form class="form-inline" action="/aplicacao/upload/upload.php" method="POST" enctype="multipart/form-data">
         <h1>
             Avatar
         </h1>

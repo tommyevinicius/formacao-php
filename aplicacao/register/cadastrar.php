@@ -22,14 +22,14 @@ function checkRegister ($data, $conn) {
     $select->bindValue(':name', $data['name']);
 
     if (!$select->execute()) {
-        header('Location: /formacao/login/index.php');
+        header('Location: /aplicacao/login/index.php');
         $_SESSION['Erro'] = 'Error to proccess';
         die();
     }
 
     if ($select->rowCount()) {
         $_SESSION['Erro'] = 'Name already exists';
-        header('Location: /formacao/register/index.php');
+        header('Location: /aplicacao/register/index.php');
         die();
     }
 
@@ -40,7 +40,7 @@ function checkRegister ($data, $conn) {
 
     if ($select->rowCount()) {
         $_SESSION['Erro'] = 'E-mail already exists';
-        header('Location: /formacao/register/index.php');
+        header('Location: /aplicacao/register/index.php');
         die();
     }
 

@@ -44,7 +44,7 @@ function selectProducts ($conn) {
     <div id='cssmenu'>
         <ul>
             <li><a href='/Layout/home.php'>Home</a></li>
-            <li class='active'><a href='/formacao/products/index.php'>Products</a>
+            <li class='active'><a href='/aplicacao/products/index.php'>Products</a>
                 <ul>
                     <?php
                     if (!isset($products) || empty($products)) : ?>
@@ -79,19 +79,19 @@ function selectProducts ($conn) {
                     <?php endif; ?>
                 </ul>
             </li>
-            <li><a href='/formacao/people/index.php'>People</a></li>
+            <li><a href='/aplicacao/people/index.php'>People</a></li>
             <!-- <li><a href='#'>Contact</a></li> -->
             <li class='active' style="float: right; padding-right: 4.7em;">
                 <a href='https://s.codepen.io/dmitrykiselyov/debug/XJwqZM?SecondTap'>
                     <?=ucwords(($user['name'] != null) ? $user['name'] : $user['NAME'])?>
                 </a>
                 <ul>
-                    <li><a href='/formacao/profile/index.php'>Profile
+                    <li><a href='/aplicacao/profile/index.php'>Profile
                             <svg class="icon">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#users"></use>
                             </svg>
                         </a></li>
-                    <li><a href="/formacao/login/logout.php">Logout
+                    <li><a href="/aplicacao/login/logout.php">Logout
                             <svg class="icon">
                                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#exit"></use>
                             </svg>

@@ -18,7 +18,7 @@ session_start();
 <div class="grid">
     <h1 class="text--center">Formação PHP 5</h1>
     <!-- <img src="/Layout/formacao.png" title="formacao" name="formacao" height="100" width="320" style="padding: 1em;"/> -->
-    <form action="/formacao/login/login.php" method="POST" class="form login">
+    <form action="/aplicacao/login/login.php" method="POST" class="form login">
 
         <div class="form__field">
             <label for="email">
@@ -49,7 +49,7 @@ session_start();
 
     </form>
     <div class="text--center">
-        <p class="text--center" style="float: left"><a href="/formacao/register/index.php" onclick="session_destroy()">Sign up now</a>
+        <p class="text--center" style="float: left"><a href="/aplicacao/register/index.php" onclick="session_destroy()">Sign up now</a>
             <svg class="icon">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#enter"></use>
             </svg>

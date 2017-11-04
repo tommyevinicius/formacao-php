@@ -15,7 +15,7 @@ $type = ['image/png', 'image/jpg', 'image/jpeg'];
 
 if (!in_array($upload['type'], $type)) {
     $_SESSION['Erro'] = "Extension not allowed";
-    header('Location: /formacao/profile/index.php');
+    header('Location: /aplicacao/profile/index.php');
     exit();
 } else {
     if (!is_dir($folder)) {
@@ -35,7 +35,7 @@ if (!in_array($upload['type'], $type)) {
 
     if (!$update->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/profile/index.php');
+        header('Location: /aplicacao/profile/index.php');
         exit();
     }
 
@@ -44,7 +44,7 @@ if (!in_array($upload['type'], $type)) {
     move_uploaded_file($upload['tmp_name'], $folder . $newName);
     $_SESSION['Erro'] = null;
     $_SESSION['Success'] = "File Uploaded";
-    header('Location: /formacao/profile/index.php');
+    header('Location: /aplicacao/profile/index.php');
 }
 ?>
 

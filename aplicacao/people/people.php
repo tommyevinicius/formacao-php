@@ -17,7 +17,7 @@ function alterPeople ($people, $conn) {
 
     if (!$select->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/people/index.php');
+        header('Location: /aplicacao/people/index.php');
         exit();
     }
 
@@ -37,7 +37,7 @@ function alterPeople ($people, $conn) {
 
     $_SESSION['Erro'] = '';
     $_SESSION['Success'] = 'Successfully registered';
-    header('Location: /formacao/people/index.php');
+    header('Location: /aplicacao/people/index.php');
     exit();
 }
 
@@ -49,13 +49,13 @@ function deletePeople ($people, $conn) {
 
     if (!$delete->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/people/index.php');
+        header('Location: /aplicacao/people/index.php');
         exit();
     }
 
     $_SESSION['Erro'] = '';
     $_SESSION['Success'] = 'Successfully registered';
-    header('Location: /formacao/people/index.php');
+    header('Location: /aplicacao/people/index.php');
     exit();
 }
 
@@ -71,12 +71,12 @@ function insertPeople ($data, $conn) {
 
     if (!$insert->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/people/index.php');
+        header('Location: /aplicacao/people/index.php');
         exit();
     }
 
     $_SESSION['Erro'] = '';
     $_SESSION['Success'] = 'Successfully registered';
-    header('Location: /formacao/people/index.php');
+    header('Location: /aplicacao/people/index.php');
     exit();
 }

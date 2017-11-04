@@ -17,7 +17,7 @@ session_start();
 <body class="align">
 <div class="grid">
     <h1 class="text--center">Register</h1>
-    <form action="/formacao/register/cadastrar.php" method="POST" class="form login">
+    <form action="/aplicacao/register/cadastrar.php" method="POST" class="form login">
 
         <div class="form__field">
             <label for="name">
@@ -57,7 +57,7 @@ session_start();
 
     </form>
 
-    <p class="text--center"><a href="/formacao/login/login.php" onclick="session_destroy()">Cancel</a>
+    <p class="text--center"><a href="/aplicacao/login/login.php" onclick="session_destroy()">Cancel</a>
         <svg class="icon">
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-undo"></use>
         </svg>

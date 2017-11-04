@@ -55,7 +55,7 @@ function selectPeople ($conn) {
                     <td style="text-align: center;"><?=$person->EMAIL?></td>
                     <td style="text-align: center;"><?=$person->CPF?></td>
                     <td style="text-align: center">
-                        <a class="btn btn-default" disabled="" onclick="return false" role="button" href="/formacao/people/people.php"><i class="glyphicon glyphicon-pencil"></i></a>
+                        <a class="btn btn-default" disabled="" onclick="return false" role="button" href="/aplicacao/people/people.php"><i class="glyphicon glyphicon-pencil"></i></a>
                         <a class="btn btn-default" disabled="" onclick="return false" role="button" href="#"><i class="glyphicon glyphicon-trash"></i></a>
                     </td>
                 </tr>

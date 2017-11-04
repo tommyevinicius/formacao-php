@@ -17,7 +17,7 @@ function alterProduct ($products, $conn) {
 
     if (!$select->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/products/index.php');
+        header('Location: /aplicacao/products/index.php');
         exit();
     }
 
@@ -34,7 +34,7 @@ function alterProduct ($products, $conn) {
 
     $_SESSION['Erro'] = '';
     $_SESSION['Success'] = 'Successfully registered';
-    header('Location: /formacao/products/index.php');
+    header('Location: /aplicacao/products/index.php');
     exit();
 }
 
@@ -46,13 +46,13 @@ function deleteProduct ($products, $conn) {
 
     if (!$delete->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/people/index.php');
+        header('Location: /aplicacao/people/index.php');
         exit();
     }
 
     $_SESSION['Erro'] = '';
     $_SESSION['Success'] = 'Successfully registered';
-    header('Location: /formacao/products/index.php');
+    header('Location: /aplicacao/products/index.php');
     exit();
 }
 
@@ -65,12 +65,12 @@ function insertProduct ($data, $conn) {
 
     if (!$insert->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/products/index.php');
+        header('Location: /aplicacao/products/index.php');
         exit();
     }
 
     $_SESSION['Erro'] = '';
     $_SESSION['Success'] = 'Successfully registered';
-    header('Location: /formacao/products/index.php');
+    header('Location: /aplicacao/products/index.php');
     exit();
 }

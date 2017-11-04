@@ -11,7 +11,7 @@ require __DIR__ . '/../../Files/form/conn.php';
 
 if (!isset($_POST) || (empty($_POST['name']) && empty($_POST['oldpassword']) && empty($_POST['password']))) {
     $_SESSION['Erro'] = 'Fill the fields';
-    header('Location: /formacao/profile/index.php');
+    header('Location: /aplicacao/profile/index.php');
     exit();
 }
 
@@ -22,7 +22,7 @@ $select->bindValue(':iduser', $user['ID_USERS']);
 
 if (!$select->execute()) {
     $_SESSION['Erro'] = 'Error to proccess';
-    header('Location: /formacao/profile/index.php');
+    header('Location: /aplicacao/profile/index.php');
     exit();
 }
 
@@ -33,12 +33,12 @@ $senha = sha1($_POST['oldpassword'] . $secret);
 if (!checkPassword($_POST)) {
     if (empty($_POST['password'])) {
         $_SESSION['Erro'] = 'Fill new password';
-        header('Location: /formacao/profile/index.php');
+        header('Location: /aplicacao/profile/index.php');
         exit();
     }
     if (sha1($_POST['oldpassword'] . $secret) != $user['PASSWORD']) {
         $_SESSION['Erro'] = 'Wrong password';
-        header('Location: /formacao/profile/index.php');
+        header('Location: /aplicacao/profile/index.php');
         exit();
     }
 }
@@ -53,7 +53,7 @@ $update = bindValueProfile($_POST, $update, $secret);
 $update->execute();
 
 $_SESSION['Success'] = "Successfully registered";
-header('Location: /formacao/profile/index.php');
+header('Location: /aplicacao/profile/index.php');
 exit();
 /**
  * @param $data

@@ -12,4 +12,4 @@ session_destroy();
 
 $_SESSION = [];
 
-header('Location: /formacao/login/');
+header('Location: /aplicacao/login/');

@@ -23,13 +23,13 @@ function checkLogin ($data, $conn) {
 
     if (!$select->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /formacao/login/index.php');
+        header('Location: /aplicacao/login/index.php');
         exit();
     }
 
     if (!$select->rowCount()) {
         $_SESSION['Erro'] = 'Wrong username or password';
-        header('Location: /formacao/login/index.php');
+        header('Location: /aplicacao/login/index.php');
         exit();
     }
 
@@ -43,7 +43,7 @@ function login ($user, $data) {
 
     if ($user['PASSWORD'] != sha1($data['password'] . $secret)) {
         $_SESSION['Erro'] = 'Wrong username or password';
-        header('Location: /formacao/login/index.php');
+        header('Location: /aplicacao/login/index.php');
         exit();
     }
 
@@ -53,5 +53,5 @@ function login ($user, $data) {
     exit();
 }
 
-header('Location: /formacao/login/index.php');
+header('Location: /aplicacao/login/index.php');
 $_SESSION = [];
