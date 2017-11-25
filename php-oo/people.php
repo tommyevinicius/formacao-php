@@ -17,9 +17,6 @@ class People
 		$this->cpf = $cpf;
 	}
 
-	$user = new People();
-	$user2 = new People('Tommye', 'Toledo', '98 9 84030288', 'tommye@teste.com', '98765432100');
-
 	public function getName()
 	{
 		return $this->name;
@@ -72,6 +69,10 @@ class People
 
 	public function __toString()
 	{
-		return 'People: ' . $name . ' ' . $lastname . ' - ' . $cpf;
+		return 'People: ' . $this->name . ' ' . $this->lastname . ' - ' . $this->cpf;
 	}
 }
+
+
+$user = new People();
+$user2 = new People('Tommye', 'Toledo', '98 9 84030288', 'tommye@teste.com', '98765432100');

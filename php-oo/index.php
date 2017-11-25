@@ -8,4 +8,4 @@
 
 print '<img src="/favicon.ico" style="display: block;">';
 print '<br/> <br/>';
-require __DIR__ . '/files/set_get.php';
+require __DIR__ . '/learning/set_get.php';
