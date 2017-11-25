@@ -1,0 +1,4 @@
+1. Como o HomeController está entendendo o parâmetro passado para o Objeto Users, sendo que não existe método construtor e nem nada.
+    R: É por causa da herança, como assim? User está extendendo de Entity e essa classe é responsável por aceitar uma conexão.
+
+2. Qual o significado de colocar no parâmetro \PDO, no caso da classe Entity.php?

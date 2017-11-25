@@ -6,7 +6,7 @@
  * Time: 11:32
  */
 
-require __DIR__ . '/../../Layout/header.php';
+require __DIR__ . '/../../layout/header.php';
 
 ?>
 
@@ -72,7 +72,7 @@ require __DIR__ . '/../../Layout/header.php';
         <hr>
         <div class="form-group text-center">
             <button type="submit" class="btn btn-success">Confirm</button>
-            <button type="button" class="btn btn-danger" onclick="location.href = '/Layout/home.php';">Cancel</button>
+            <button type="button" class="btn btn-danger" onclick="location.href = '/layout/home.php';">Cancel</button>
         </div>
     </form>
 </div>

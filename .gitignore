@@ -1,3 +1,4 @@
 .idea
 /php-basico/Files/Arquivos/*.txt
 /php-basico/aplicacao/upload/uploads
+/projeto/vendor

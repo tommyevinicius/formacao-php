@@ -6,7 +6,7 @@
  * Time: 12:58
  */
 
-require __DIR__ . '/../../Layout/header.php';
+require __DIR__ . '/../../layout/header.php';
 
 ?>
 

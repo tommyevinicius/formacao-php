@@ -64,13 +64,13 @@ function insert($data, $conn) {
 
     if (!$insert->execute()) {
         $_SESSION['Erro'] = 'Error to proccess';
-        header('Location: /Layout/home.php');
+        header('Location: /layout/home.php');
         die();
     }
 
     unset($data['password']);
     $_SESSION['user'] = $data;
-    header('Location: /Layout/home.php');
+    header('Location: /layout/home.php');
     exit();
 }
 
