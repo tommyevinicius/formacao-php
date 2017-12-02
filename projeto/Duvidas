@@ -2,3 +2,4 @@
     R: É por causa da herança, como assim? User está extendendo de Entity e essa classe é responsável por aceitar uma conexão.
 
 2. Qual o significado de colocar no parâmetro \PDO, no caso da classe Entity.php?
+    R: Usa a classe PDO da própria linguagem.

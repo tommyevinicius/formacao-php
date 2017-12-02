@@ -20,4 +20,11 @@ if (!class_exists($controller = 'Code\Controller\\' . ucfirst($controller) . 'Co
 $actions = !isset($url[1]) || !$url[1] ? 'index' : $url[1];
 $params = !isset($url[2]) || !$url[2] ? '' : $url[2];
 
-print call_user_func_array([new $controller, $actions], [$params]);
+if(!method_exists($controller, $actions)) {
+    $params = $actions;
+    $actions = 'index';
+}
+
+$response = call_user_func_array([new $controller, $actions], [$params]);
+
+print $response;
