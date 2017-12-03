@@ -9,8 +9,13 @@ require 'vendor/autoload.php';
 
 use Code\Sum;
 
-$result = new Sum(1,2);
+$result = new Sum();
 
-print $result->sum();
+print $result->sum(1,2);
 
-//print 'passe aqui';
+/* TERMINAL
+
+cd php-tests
+bin/phpunit
+
+*/

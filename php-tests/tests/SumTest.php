@@ -13,10 +13,19 @@ class SumTest extends TestCase
 {
     public function testSumTwoNumbers ()
     {
-        $soma = new Sum(3,5);
-        $result = $soma->sum();
+        $soma = new Sum();
+
+        $result = $soma->sum(3,5);
 
         $this->assertEquals(8, $result);
+
+        $result = $soma->sum(3.5,5.5);
+
+        $this->assertEquals(9, $result);
+
+        $result = $soma->sum(1,-1);
+
+        $this->assertEquals(0, $result);
     }
 
     /**
@@ -25,7 +34,7 @@ class SumTest extends TestCase
      */
     public function testFalhaAoNaoPassarUmValor()
     {
-        $soma = new Sum(3);
-        $result = $soma->sum();
+        $soma = new Sum();
+        $result = $soma->sum(3);
     }
 }
