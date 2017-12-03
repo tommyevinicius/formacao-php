@@ -102,7 +102,7 @@ function selectProducts ($conn) {
             <li style="float: right;">
                 <div style="padding-top: 10px;">
                     <?php if (empty($user['AVATAR'])) : ?>
-                        <img class="img-circle img-thumbnail" width="30px;" src="/favicon.ico">
+                        <img class="img-circle img-thumbnail" width="30px;" src="favicon.ico">
                     <?php else : ?>
                         <img class="img-circle" width="30px;" src="/aplicacao/upload/uploads/<?=$user['AVATAR']?>">
                     <?php endif; ?>
