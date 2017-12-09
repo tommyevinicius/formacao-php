@@ -1,0 +1,89 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: tommye
+ * Date: 09/12/17
+ * Time: 09:57
+ */
+
+require __DIR__ . '/includes/header.phtml';
+
+?>
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron container">
+        <h1>
+            <i class="fa fa-shopping-cart"></i>
+            Products
+        </h1>
+    </div>
+    <div class="col-md-12">
+    <!-- Example row of columns -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <?php require __DIR__ . '/includes/message.phtml';?>
+            </div>
+            <div class="col-sm-12 col-md-12">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th colspan="3" class="h3">Product</th>
+                        <th colspan="1" class="h3 text-center">Price</th>
+                        <th colspan="1" class="text-center"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                <?php if($this->products): ?>
+                        <?php foreach($this->products['products'] as $key => $product):?>
+                            <tr>
+                                <td colspan="3" class="col-sm-3 col-md-3">
+                                    <h5 class="media-heading"><a href="<?=HOME?>product/<?=$product['slug'];?>"><?=$product['name'];?></a></h5>
+                                </td>
+                                <td colspan="1" class="col-sm-1 col-md-1 text-center"><strong>R$ <?=number_format($product['price'], 2, ',', '.');?></strong></td>
+                                <td colspan="1" class="col-sm-1 col-md-1 text-right">
+                                    <a href="/cart/remove/<?=$product['slug'];?>" class="btn btn-danger">
+                                        <span class="fa fa-remove"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        <?php endforeach;?>
+                        </tbody>
+
+                        <tfoot>
+                            <tr style="background: #b9c3c7">
+                                <td colspan="3"></td>
+                                <td class="text-center"><h4><strong>TOTAL</strong></h4></td>
+                                <td class="text-right"><h4><strong>R$ <?=number_format($this->products['total'], 2, ',', '.');?></strong></h4></td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3"></td>
+                                <td>
+                                    <a href="/" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-shopping-cart"></span> Continuar Comprando
+                                    </a></td>
+                                <td>
+                                    <a  href="/checkout"  class="btn btn-success">
+                                        Pagar Com PagSeguro <span class="glyphicon glyphicon-play"></span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                <?php else: ?>
+                    <tr class="text-center">
+                        <td colspan="5">Nenhum produto no carrinho</td>
+                    </tr>
+
+                    </body>
+<!--                    <div class="alert alert-warning">-->
+<!--                        Nenhum produto no carrinho-->
+<!--                        <a href="/" class="pull-right">Voltar</a>-->
+<!--                    </div>-->
+                <?php endif; ?>
+                </table>
+            </div>
+        </div>
+    </div>
+<?php require __DIR__ . '/includes/footer.phtml';?>

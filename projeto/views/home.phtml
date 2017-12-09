@@ -8,10 +8,15 @@
         <!--            --><?php //endforeach; ?>
         <!--        </div>-->
 
+        <div class="jumbotron container">
+            <h1>
+                <i class="fa fa-truck"></i>
+                Products
+            </h1>
+        </div>
+
         <?php foreach ($this->products as $product): ?>
         <div class="col-md-4">
-                <h1>Products</h1>
-
             <img src="http://via.placeholder.com/350x150?text=CODE" alt="" class="img-responsive">
             <h3>
                 <a href="<?=HOME;?>product/<?=$product['slug'];?>">

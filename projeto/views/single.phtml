@@ -1,6 +1,9 @@
 <?php require VIEWS_PATH . '/includes/header.phtml';?>
 <div class="container">
     <div class="row">
+        <div class="col-md-12">
+            <?php require __DIR__ . '/includes/message.phtml';?>
+        </div>
         <?php if(!$this->product):?>
             <div class="alert alert-warning">
                 Nenhum produto encontrado!

@@ -1,7 +1,16 @@
 {
+  "require-dev" : {
+    "phpunit/phpunit": "^6.5"
+  },
   "autoload" : {
     "psr-4" : {
-      "Code\\" : "src/"
+      "Code\\": "src/"
     }
+  },
+  "config" : {
+    "bin-dir": "bin/"
+  },
+  "require": {
+    "phpsc/pagseguro": "^1.0"
   }
 }

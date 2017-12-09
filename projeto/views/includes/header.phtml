@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Projeto Formação PHP</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 30px;">
@@ -20,14 +21,28 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?= HOME; ?>">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="<?=HOME;?>">Home <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>
-            </form>
+<!--            <form class="form-inline my-2 my-lg-0">-->
+<!--                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Search</button>-->
+<!--            </form>-->
         </div>
+        <ul class="navbar-nav mr-auto pull-right">
+            <li class="nav-item active">
+                <?php \Code\Service\SessionService::sessionStart();?>
+                <a class="nav-link" href="<?=HOME;?>cart" style="position: relative">
+                    <i class="fa fa-2x fa-shopping-cart"></i>
+                    <?php if(isset($_SESSION['products'])):?>
+                        <span class="badge badge-danger" style="position: absolute; top: 3px; right: 0;">
+                               <?=count($_SESSION['products']);?>
+                           </span>
+                    <?php endif;?>
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </nav>
 <body>
