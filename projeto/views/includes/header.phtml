@@ -12,9 +12,9 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="margin-bottom: 30px;">
     <div class="container">
-        <img src="favicon.ico" name="logo">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-2x fa-home"></i>
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -36,9 +36,18 @@
                     <i class="fa fa-2x fa-shopping-cart"></i>
                     <?php if(isset($_SESSION['products'])):?>
                         <span class="badge badge-danger" style="position: absolute; top: 3px; right: 0;">
-                               <?=count($_SESSION['products']);?>
-                           </span>
+                           <?=count($_SESSION['products']);?>
+                       </span>
                     <?php endif;?>
+                    <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li class="nav-item active" style="padding-left: 20px;">
+                <a class="nav-link" href="<?=HOME;?>signup" style="position: relative">
+                    <i class="fa fa-2x fa-user"></i>
+                    <span class="badge badge-info" style="position: absolute; top: 30px; right: 0;">
+                        <?='T'?>
+                    </span>
                     <span class="sr-only">(current)</span>
                 </a>
             </li>

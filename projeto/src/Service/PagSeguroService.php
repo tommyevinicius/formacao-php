@@ -79,6 +79,6 @@ class PagSeguroService
 
         }
 
-        return $response->getRedirectionUrl();
+        return $response;
     }
 }

@@ -64,23 +64,20 @@ require __DIR__ . '/includes/header.phtml';
                                         <span class="glyphicon glyphicon-shopping-cart"></span> Continuar Comprando
                                     </a></td>
                                 <td>
-                                    <a  href="/checkout"  class="btn btn-success">
-                                        Pagar Com PagSeguro <span class="glyphicon glyphicon-play"></span>
+                                    <a  href="<?=HOME;?>signup"  class="btn btn-success">
+                                        Concluir Compra <span class="glyphicon glyphicon-play"></span>
                                     </a>
                                 </td>
                             </tr>
                         </tfoot>
                     </table>
+
                 <?php else: ?>
                     <tr class="text-center">
                         <td colspan="5">Nenhum produto no carrinho</td>
                     </tr>
 
                     </body>
-<!--                    <div class="alert alert-warning">-->
-<!--                        Nenhum produto no carrinho-->
-<!--                        <a href="/" class="pull-right">Voltar</a>-->
-<!--                    </div>-->
                 <?php endif; ?>
                 </table>
             </div>
